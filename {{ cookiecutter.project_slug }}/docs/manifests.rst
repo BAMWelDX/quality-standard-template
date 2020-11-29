@@ -1,0 +1,6 @@
+Manifests
+=========
+
+.. asdf-autoschemas::
+
+    manifests/*

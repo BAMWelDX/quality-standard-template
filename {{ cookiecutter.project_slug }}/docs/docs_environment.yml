@@ -1,0 +1,17 @@
+name: sphinx_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.7
+  - asdf>=2.7
+  # documentation
+  - sphinx
+  - recommonmark
+  - sphinx-copybutton
+  - sphinxcontrib-bibtex
+  - pydata-sphinx-theme
+  # pip packages
+  - pip
+  - pip:
+    - git+https://github.com/CagtayFabry/sphinx-asdf.git@sphinx-weldx

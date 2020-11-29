@@ -1,0 +1,6 @@
+Schemas
+=======
+
+.. asdf-autoschemas::
+
+    schemas/*
