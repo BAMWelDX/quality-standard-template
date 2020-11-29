@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from setuptools import setup, find_packages
-
+from setuptools_scm import get_version
 
 packages = find_packages(where="src")
 packages.append("{{ cookiecutter.project_slug}}.resources")
@@ -15,6 +15,7 @@ package_data = {
 }
 
 setup(
+    version=get_version(),
     use_scm_version={
         "write_to": "src/{{ cookiecutter.project_slug }}/_version.py",
         "write_to_template": '__version__ = "{version}"\n',

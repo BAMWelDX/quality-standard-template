@@ -1,0 +1,12 @@
+name: build_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.7
+  - setuptools
+  - setuptools_scm
+  - conda-build
+  - conda-verify
+  - anaconda-client
+  - numpydoc>=0.5

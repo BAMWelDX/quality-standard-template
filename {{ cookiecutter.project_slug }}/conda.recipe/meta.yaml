@@ -1,0 +1,32 @@
+{{ "{%" }} set data = load_setup_py_data() {{ "%}" }}
+
+package:
+    name: {{ cookiecutter.project_slug }}
+    version: {{ "{{" }} data["version"] {{ "}}" }}
+
+source:
+    path: ..
+
+build:
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 0
+  noarch: python
+
+requirements:
+    build:
+        - python
+        - setuptools
+        - setuptools_scm
+    run:
+        - python
+        - asdf
+        - weldx
+        - importlib_resources>=3 # [py<39]
+
+test:
+    imports:
+        - {{ cookiecutter.project_slug }}
+
+about:
+    home: {{ cookiecutter.url }}
+    license: BSD
