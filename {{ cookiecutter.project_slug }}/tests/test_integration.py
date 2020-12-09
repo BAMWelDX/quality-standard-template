@@ -18,7 +18,10 @@ def test_resources():
 
 def test_manifests():
     manifests_root = (
-        Path(__file__).parent.parent / "resources" / "{{ cookiecutter.organization_name }}" / "manifests"
+        Path(__file__).parent.parent
+        / "resources"
+        / "{{ cookiecutter.organization_name }}"
+        / "manifests"
     )
     resource_manager = asdf.get_config().resource_manager
 

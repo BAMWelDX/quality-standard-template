@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 from setuptools_scm import get_version
 
 packages = find_packages(where="src")
