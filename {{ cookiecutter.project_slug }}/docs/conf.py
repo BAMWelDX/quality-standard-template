@@ -94,6 +94,11 @@ source_suffix = {
 # The master toctree document.
 master_doc = "index"
 
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+# This pattern also affects html_static_path and html_extra_path.
+exclude_patterns = ["_build/*"]
+
 # -- sphinx-asdf configuration -------------------------------------------------
 # This variable indicates the top-level directory containing schemas.
 # The path is relative to the location of conf.py in the package

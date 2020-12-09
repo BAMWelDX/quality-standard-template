@@ -1,0 +1,75 @@
+name: build
+on: [push]
+
+jobs:
+  conda:
+    name: conda build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all tags and branches
+
+      - name: Cache conda
+        uses: actions/cache@v2
+        env:
+          # Increase this value to reset cache if ./conda.recipe/build_env.yml has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('./conda.recipe/build_env.yml') }}
+
+      - name: Setup Conda Environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          channels: defaults,conda-forge,bamwelding
+          environment-file: ./conda.recipe/build_env.yml
+          activate-environment: build_env
+          auto-activate-base: false
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+
+      - name: conda info
+        shell: bash -l {0}
+        run: conda info
+
+      - name: conda list
+        shell: bash -l {0}
+        run: conda list
+
+      - name: Build from local conda recipe
+        shell: bash -l {0}
+        run: conda build .
+
+      - name: set package file env
+        shell: bash -l {0}
+        run: echo "PACKAGE_DIR=$(conda build . --output)" >> $GITHUB_ENV
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: weldx-conda
+          path: ${{ env.PACKAGE_DIR }}
+
+  pypi:
+    name: pypi build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all tags and branches
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: pip installs
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools setuptools_scm wheel twine
+      - name: build package
+        run: |
+          python setup.py sdist bdist_wheel
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ./dist/
