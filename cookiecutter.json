@@ -7,5 +7,6 @@
     "url": "https://github.com/BAMWeldx/{{ cookiecutter.project_slug }}",
     "organization_name": "weldx.bam.de",
     "schema_uri_root": "http://weldx.bam.de/schemas/weldx",
-    "manifest_uri_root": "http://weldx.bam.de/weldx/extensions/manifests"
+    "manifest_uri_root": "http://weldx.bam.de/weldx/extensions/manifests",
+    "git_setup": ["no", "yes"]
 }
