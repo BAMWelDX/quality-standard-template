@@ -1,4 +1,4 @@
-# cookiecutter demo
+# quality-standard-template
 
 Setup steps:
 
@@ -9,7 +9,7 @@ Setup steps:
 - navigate your terminal into the directory where you want to create the project
 - start the cookiecutter setup
   ```
-  cookiecutter https://github.com/BAMWeldx/cookiecutter-demo
+  cookiecutter https://github.com/BAMWeldx/quality-standard-template
   ```
 - fill out all fields as necessary
 - the template automatically creates a git repository and tags `0.1.0` release
