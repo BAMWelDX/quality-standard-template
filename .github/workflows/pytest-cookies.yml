@@ -1,0 +1,22 @@
+name: pytest asdf
+on: [push, pull_request]
+
+jobs:
+  pytest:
+    name: pytest cookies
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+        py: ['3.8']
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.py }}
+      - name: pip installs
+        run: |
+          pip install -e .[test]
+      - name: run pytest
+        run: |
+          pytest
