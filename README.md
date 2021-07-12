@@ -17,4 +17,4 @@ Setup steps:
   ```
   pip install -e ./quality_standard_demo
   ```
-  (careful, this will install weldx from pypi if weld is not locally installed)
+  (careful, this will install `weldx` from pypi if `weldx` is not locally installed)
