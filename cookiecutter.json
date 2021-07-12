@@ -3,7 +3,7 @@
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ',  '_').replace('-', '_') }}",
     "author": "Cagtay Fabry",
     "author_email": "Cagtay.Fabry@bam.de",
-    "description": "A demonstrational weldx quality standard",
+    "description": "A demonstrative weldx quality standard",
     "url": "https://github.com/BAMWeldx/{{ cookiecutter.project_slug }}",
     "organization_name": "weldx.bam.de",
     "schema_uri_root": "http://weldx.bam.de/schemas/weldx",
