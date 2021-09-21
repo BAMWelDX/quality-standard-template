@@ -1,0 +1,17 @@
+ci:
+  autofix_prs: true
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.9.3
+    hooks:
+      - id: isort
