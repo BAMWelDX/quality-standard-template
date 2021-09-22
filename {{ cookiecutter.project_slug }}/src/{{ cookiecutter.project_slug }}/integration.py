@@ -1,5 +1,5 @@
-from pathlib import Path
 import sys
+from pathlib import Path
 
 from weldx.config import QualityStandard
 
@@ -8,9 +8,8 @@ if sys.version_info < (3, 9):
 else:
     import importlib.resources as importlib_resources
 
+import {{ cookiecutter.project_slug }}
 from asdf.resource import DirectoryResourceMapping
-
-import {{ cookiecutter.project_slug}}
 
 
 def get_quality_standard():

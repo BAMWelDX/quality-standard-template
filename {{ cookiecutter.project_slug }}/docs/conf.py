@@ -21,7 +21,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.abspath(""))
 sys.path.insert(0, os.path.abspath("../src"))
 
-from {{ cookiecutter.project_slug }}._version import __version__
+from {{cookiecutter.project_slug}}._version import __version__
 
 # -- Project information -----------------------------------------------------
 

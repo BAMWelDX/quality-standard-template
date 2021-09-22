@@ -8,6 +8,3 @@
 
     manifests
     schemas
-
-
-
