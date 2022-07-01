@@ -5,5 +5,5 @@ description: |-
   {{ cookiecutter.description }}
 asdf_standard_requirement: 1.0.0
 tags:
-  - uri: "http://weldx.bam.de/schemas/weldx/equipment/measurement_equipment-1.0.0"
-    file: "generic_equipment_example_schema-1.0.0"
+  - uri: "asdf://weldx.bam.de/weldx/schemas/equipment/measurement_equipment-0.1.0"
+    file: "measurement_equipment_example_schema-1.0.0"
