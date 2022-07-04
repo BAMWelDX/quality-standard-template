@@ -3,7 +3,7 @@
 ## About
 
 This repository is a template to create installable quality standards for the WelDX Python API.
-Check out the [corresponding tutorial](https://weldx.readthedocs.io/en/latest/tutorials/quality_standards.html) if you 
+Check out the [corresponding tutorial](https://weldx.readthedocs.io/en/latest/tutorials/quality_standards.html) if you
 don't know what quality standards are.
 
 ## Basic setup
@@ -37,7 +37,7 @@ pip install -e .
 
 > **IMPORTANT NOTE:** This will install `weldx` from pypi if `weldx` is not locally installed
 
-The `-e` is optional but lets modifications to the files take immediate effect without the need to reinstall the 
+The `-e` is optional but lets modifications to the files take immediate effect without the need to reinstall the
 standard every time we change something.
 
 ## Checking the installation
@@ -75,7 +75,7 @@ If it is still not working, feel free to open a new issue.
 Next we will take a look on how to add more custom schemas.
 First navigate to the directory `/resources/ORGANIZATION_NAME/schemas`.
 The `ORGANIZATION_NAME` is a name you specified during the cookiecutter run.
-We want to replace the schema for the `weldx.Error` class and create the file `new_error_schema-0.1.0.yaml` in the 
+We want to replace the schema for the `weldx.Error` class and create the file `new_error_schema-0.1.0.yaml` in the
 `schemas` directory.
 Our goal is that the error must always be a quantity with percent as unit.
 The original schema allows quantities of any unit and plain numbers as well.
