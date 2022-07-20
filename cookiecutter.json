@@ -8,5 +8,5 @@
     "organization_name": "weldx.bam.de",
     "schema_uri_root": "http://weldx.bam.de/schemas/weldx",
     "manifest_uri_root": "http://weldx.bam.de/weldx/extensions/manifests",
-    "git_setup": ["no", "yes"]
+    "git_setup": ["yes", "no"]
 }
