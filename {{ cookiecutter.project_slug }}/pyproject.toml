@@ -1,23 +1,20 @@
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
-  "setuptools>=63",
-  "setuptools_scm",
+  "setuptools>=64",
+  "setuptools_scm>=8",
   "wheel",
 ]
 
 [project]
-name = "{{ cookiecutter-project-slug }}"
+name = "{{ cookiecutter.project_slug }}"
 description = "{{ cookiecutter.description }}"
-[project.readme]
-file = "README.md"
-content-type = "text/markdown"
-
-license = {text = "BSD 3-Clause"}
-[[project.authors]]
-name = "{{ cookiecutter.author }}"
-email = "{{ cookiecutter.author_email }}"
-
+readme = "README.md"
+urls = {Homepage = "{{ cookiecutter.url }}"}
+license = {file = "LICENSE", name="BSD License"}
+authors = [
+    {name="{{ cookiecutter.author }}", email="{{ cookiecutter.author_email }}"},
+]
 requires-python = ">=3.9"
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
@@ -27,7 +24,8 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
 ]
 dynamic = [
-  "version",
+  # see: https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#dynamic-metadata
+  "version", # version gets derived from git by setuptools_scm.
 ]
 dependencies = [
   "asdf",
@@ -38,18 +36,19 @@ dependencies = [
 test = [
   "pytest",
 ]
-urls = {Homepage = "{{ cookiecutter.url }}"}
 [project.entry-points."weldx.standard"]
-"{{ cookiecutter.project_slug}}" = "{{ cookiecutter.project_slug}}.integration:get_quality_standard"
+"{{ cookiecutter.project_slug}}" = "{{ cookiecutter.project_slug }}.integration:get_quality_standard"
 
 [tool.setuptools]
 zip-safe = true
 license-files = ["LICENSE"]
-include-package-data = false
+include-package-data = true
+[tool.setuptools.package-data]
+quality_standard_demo = ["*.yaml", "**/*.yaml", "**/**/*.yaml"]
 
-[tool.flake8]
-ignore = "E501, E203, W503"
-exclude = ".git, __pycache__, build, dist, eggs, *.egg"
+[tool.setuptools_scm]
+write_to = "src/{{ cookiecutter.project_slug }}/_version.py"
+write_to_template = '__version__ = "{version}"'
 
 [tool.pytest.ini_options]
 asdf_schema_root = "resources/{{ cookiecutter.organization_name }}/schemas"
