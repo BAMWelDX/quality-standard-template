@@ -7,5 +7,5 @@ subprocess.call(["git", "commit", "-m", "Cookiecutter setup commit"])
 
 subprocess.call(["git", "tag", "1.0.0"])
 
-subprocess.call(["python", "setup.py", "--version"])
+subprocess.call(["python", "-m", "setuptools_scm"])
 {% endif %}

@@ -1,3 +1,60 @@
 [build-system]
-requires = ["setuptools", "wheel", "setuptools_scm"]
 build-backend = "setuptools.build_meta"
+requires = [
+  "setuptools>=64",
+  "setuptools_scm>=8",
+  "wheel",
+]
+
+[project]
+name = "{{ cookiecutter.project_slug }}"
+description = "{{ cookiecutter.description }}"
+readme = "README.md"
+urls = {Homepage = "{{ cookiecutter.url }}"}
+license = {file = "LICENSE", name="BSD License"}
+authors = [
+    {name="{{ cookiecutter.author }}", email="{{ cookiecutter.author_email }}"},
+]
+requires-python = ">=3.9"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dynamic = [
+  # see: https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#dynamic-metadata
+  "version", # version gets derived from git by setuptools_scm.
+]
+dependencies = [
+  "asdf",
+  'importlib_resources>=3; python_version < "3.9"',
+  "weldx",
+]
+[project.optional-dependencies]
+test = [
+  "pytest",
+]
+[project.entry-points."weldx.standard"]
+"{{ cookiecutter.project_slug}}" = "{{ cookiecutter.project_slug }}.integration:get_quality_standard"
+
+[tool.setuptools]
+zip-safe = true
+license-files = ["LICENSE"]
+include-package-data = true
+[tool.setuptools.package-data]
+quality_standard_demo = ["*.yaml", "**/*.yaml", "**/**/*.yaml"]
+
+[tool.setuptools_scm]
+write_to = "src/{{ cookiecutter.project_slug }}/_version.py"
+write_to_template = '__version__ = "{version}"'
+
+[tool.pytest.ini_options]
+asdf_schema_root = "resources/{{ cookiecutter.organization_name }}/schemas"
+asdf_schema_tests_enabled = true
+asdf_schema_ignore_unrecognized_tag = true
+testpaths = [
+    # tests
+    "resources",
+]
