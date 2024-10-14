@@ -2,48 +2,52 @@
 build-backend = "setuptools.build_meta"
 requires = [
   "setuptools",
-  "setuptools_scm",
+  "setuptools-scm",
 ]
 
 [project]
 name = "weldx-quality-standard-cookiecutter-template"
 version = "0.2.0"
 description = "A cookiecutter template to generate WelDX quality standards"
-[project.readme]
-file = "README.md"
-content-type = "text/markdown"
-
-license = {text = "BSD 3-Clause"}
-authors = [{name = "Cagtay Fabry", email = "Cagtay.Fabry@bam.de"}]
-requires-python = ">=3.9"
-classifiers = [
+readme.authors = [ { name = "Cagtay Fabry", email = "Cagtay.Fabry@bam.de" } ]
+readme.classifiers = [
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
 ]
-dependencies = [
+readme.content-type = "text/markdown"
+readme.dependencies = [
   "cookiecutter",
 ]
-[project.optional-dependencies]
-test = [
+readme.file = "README.md"
+readme.license = { text = "BSD 3-Clause" }
+readme.requires-python = ">=3.9"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+optional-dependencies.test = [
   "pytest",
   "pytest-cookies",
 ]
-[project.urls]
-Homepage = '"https://github.com/BAMWeldx/quality-standard-template",'
+urls.Homepage = '"https://github.com/BAMWeldx/quality-standard-template",'
 
 [tool.setuptools]
-license-files = ["LICENSE"]
+license-files = [ "LICENSE" ]
 include-package-data = false
 
 [tool.isort]
 profile = "black"
 default_section = "THIRDPARTY"
-known_first_party = ["weldx"]
-sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_first_party = [ "weldx" ]
+sections = [ "FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER" ]
 
 [tool.pytest.ini_options]
 addopts = "--color=yes"
-testpaths = ["tests"]
+testpaths = [ "tests" ]
