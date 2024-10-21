@@ -1,21 +1,21 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
   - repo: https://github.com/PyCQA/isort
-    rev: 5.12.0
+    rev: 5.13.2
     hooks:
       - id: isort
   # ----- repo maintenance -----
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "1.5.1"
+    rev: "2.4.3"
     hooks:
       - id: pyproject-fmt
         exclude: "^{{ cookiecutter.project_slug }}/pyproject.toml"
   - repo: https://github.com/abravalheri/validate-pyproject
-    rev: "v0.15"
+    rev: "v0.21"
     hooks:
     - id: validate-pyproject
